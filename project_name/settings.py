@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'debug_toolbar',
     '{{ project_name }}.core',
+    '{{ project_name }}.authentication',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    '{{ project_name }}.authentication.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = '{{ project_name }}.urls'
@@ -131,3 +133,15 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'authentication.CustomUser'
+
+# utilizado pelo middleware LoginRequiredMiddleware
+AUTH_URLS = (
+    r'(.*)',
+)
+NO_AUTH_URLS = (
+    r'/admin(.*)$',
+    r'/accounts/login/',
+)
+

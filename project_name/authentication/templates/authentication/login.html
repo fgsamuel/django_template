@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="dns-prefetch" href="//recyplus.com.br">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://code.jquery.com">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Recyplus</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'new/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'new/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+    <nav class="white lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"><img src="{% static 'new/img/logo.png' %}"/></a>
+          <ul class="blue right hide-on-med-and-down">
+            <li><a href="#">Recicla Kids</a></li>
+            <li><a href="#">Entrar</a></li>
+          </ul>
+    
+          <ul id="nav-mobile" class="sidenav">
+            <li><a href="#">Recicla Kids</a></li>
+            <li><a href="#">Entrar</a></li>
+          </ul>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+
+<div class="container">
+      
+  <div class="row">
+
+    <div class="col s8 offset-s2">
+
+        <div class="card-content">
+            
+          <span class="card-title">Digite seu usuário e senha para continuar</span>
+          <form data-form-type="login" method="post">
+          {% csrf_token %}
+            <div class="input-field">
+              {{ form.email }}
+              <label for="id_email">E-mail</label>
+            </div>
+            <div class="input-field">
+              {{ form.senha }}
+              <label for="id_senha">Senha</label>
+            </div>
+
+            <a href="#!">Esqueceu a senha?</a>
+
+            <br><br>
+            <div>
+              <input class="btn right green" type="submit" value="Log In" >
+              <a href="{% url 'core:site' %}" class="btn-flat right">Voltar</a>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <footer class="page-footer blue">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Recyplus </h5>
+          <p class="grey-text text-lighten-4">Recyplus é  um produto da Ambientalíssima.  </p>
+          <p class="grey-text text-lighten-4">Somos uma equipe focada em gestão de resíduos sólidos....</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Nossos Programas</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Recicla Kids</a></li>
+            <li><a class="white-text" href="#!">Recicla Condomínios</a></li>
+            <li><a class="white-text" href="#!">Recicla Empresarial</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Siga-nos</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Instagram</a></li>
+            <li><a class="white-text" href="#!">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Desenvolvido por <a class="orange-text text-lighten-3" href="https://manus.inf.br?utm_source='recyplus'">Manu's Informática</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'new/js/materialize.js' %}"></script>
+  <script src="{% static 'new/js/init.js' %}"></script>
+
+  </body>
+</html>
